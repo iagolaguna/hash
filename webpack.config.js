@@ -1,5 +1,5 @@
-const HtmlWebPackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebPackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = function (env, argv) {
   return {
@@ -36,5 +36,5 @@ module.exports = function (env, argv) {
 
     // Sourcemap config
     devtool: 'source-map'
-  };
+  }
 };
