@@ -1,7 +1,5 @@
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
-
-const devMode = process.env.NODE_ENV !== 'production'
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = function (env, argv) {
   return {
@@ -9,11 +7,9 @@ module.exports = function (env, argv) {
       rules: [
         {
           test: /\.s?[ac]ss$/,
-          use: [
-            devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
-            'css-loader',
-            'sass-loader'
-          ]
+          use: ExtractTextPlugin.extract({
+            use: [{ loader: 'css-loader' }, { loader: 'sass-loader' }]
+          })
         },
         {
           test: /\.js$/,
@@ -28,17 +24,11 @@ module.exports = function (env, argv) {
       ]
     },
     plugins: [
-      new MiniCssExtractPlugin({
-        // Options similar to the same options in webpackOptions.output
-        // both options are optional
-        filename: devMode ? '[name].css' : '[name].[hash].css',
-        chunkFilename: devMode ? '[id].css' : '[id].[hash].css'
-      }),
       new HtmlWebPackPlugin({
         template: './src/index.html',
         filename: './index.html'
-      })
-
+      }),
+      new ExtractTextPlugin('styles.css'),
     ],
 
     // Pretty stats
