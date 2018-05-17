@@ -54,3 +54,34 @@ body {
     }
   }
 }
+
+
+@keyframes anim-win-x {
+  from{
+    background-color: aqua;
+  }
+  to {
+    background-color: red;
+  }
+}
+
+.win-x {
+  animation-name: anim-win-x;
+  animation-iteration-count: infinite;
+  animation-duration: 0.125s;
+}
+
+@keyframes anim-win-o {
+  from{
+    background-color: green;
+  }
+  to {
+    background-color: red;
+  }
+}
+
+.win-o {
+  animation-name: anim-win-o;
+  animation-iteration-count: infinite;
+  animation-duration: 0.125s;
+}
