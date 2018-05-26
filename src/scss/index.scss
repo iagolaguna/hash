@@ -55,33 +55,47 @@ body {
   }
 }
 
+.win {
+  animation-name: anim-win;
+  animation-iteration-count: infinite;
+  animation-duration: .3s;
+}
 
-@keyframes anim-win-x {
+@keyframes anim-win {
   from{
-    background-color: aqua;
+    background-color: white;
   }
   to {
-    background-color: red;
-  }
-}
-
-.win-x {
-  animation-name: anim-win-x;
-  animation-iteration-count: infinite;
-  animation-duration: 0.125s;
-}
-
-@keyframes anim-win-o {
-  from{
     background-color: green;
   }
-  to {
-    background-color: red;
-  }
+}
+.visible-o{
+  display: none;
 }
 
-.win-o {
-  animation-name: anim-win-o;
-  animation-iteration-count: infinite;
-  animation-duration: 0.125s;
+div[data-symbol ='O'] > .visible-o{
+  display: block;
+}
+
+.visible-x{
+  display: none;
+}
+
+div[data-symbol ='X'] > .visible-x{
+  display: block;
+}
+
+// .circle{
+//   stroke: rgb(242, 235, 211);
+//   fill:none;
+//   stroke-width: 16px;
+//   transition: stroke-dashoffset 0.225s cubic-bezier(0.4,0,0.2,1);
+// }
+
+// .x{
+
+// }
+path{
+  stroke-width: 16px;
+  fill:none;
 }
